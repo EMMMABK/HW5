@@ -46,6 +46,40 @@ public class StringProcessor {
     }
 
     public double calculateExpression(String expression){
+        Stack<Double> numbers = new Stack<>();
+        Stack<Character> operators = new Stack<>();
 
+        double currentNumber = 0;
+        char lastOperator = '+';
+
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
+
+            if (Character.isDigit(c)) {
+                currentNumber = currentNumber * 10 + (c - '0');
+            }
+
+            if (!Character.isDigit(c) && c != ' ' || i == expression.length() - 1) {
+                if (lastOperator == '+') {
+                    numbers.push(currentNumber);
+                } else if (lastOperator == '-') {
+                    numbers.push(-currentNumber);
+                } else if (lastOperator == '*') {
+                    numbers.push(numbers.pop() * currentNumber);
+                } else if (lastOperator == '/') {
+                    numbers.push(numbers.pop() / currentNumber);
+                }
+
+                lastOperator = c;
+                currentNumber = 0;
+            }
+        }
+
+        double result = 0;
+        while (!numbers.isEmpty()) {
+            result += numbers.pop();
+        }
+
+        return result;
     }
 }
