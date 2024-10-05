@@ -90,3 +90,4 @@ public class StringProcessor {
 //iterator over the expression to build the numbers and handle operators.
 //applies the last operator to the number and pushes result into the stack.
 //at the end, it sums up all numbers in the stack to return the result.
+// oh, in the last method i used google habr
