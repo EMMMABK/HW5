@@ -1,6 +1,4 @@
 package org.example;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Stack;
 
 public class StringProcessor {
@@ -27,7 +25,11 @@ public class StringProcessor {
     }
 
     public int calculateDigits(String sentence){
-
+        if(sentence==null || sentence.trim().isEmpty()){
+            return 0;
+        }
+        String[] words = sentence.trim().split(" ");
+        return words.length;
     }
 
     public int calculateWord(String sentence){
