@@ -24,7 +24,7 @@ public class StringProcessor {
         return false;
     }
 
-    public int calculateDigits(String sentence){
+    public int calculateWord(String sentence){
         if(sentence==null || sentence.trim().isEmpty()){
             return 0;
         }
@@ -32,8 +32,17 @@ public class StringProcessor {
         return words.length;
     }
 
-    public int calculateWord(String sentence){
-
+    public int calculateDigits(String sentence){
+        if (sentence == null || sentence.isEmpty()) {
+            return 0;
+        }
+        int digitCount = 0;
+        for (char c : sentence.toCharArray()) {
+            if (Character.isDigit(c)) {
+                digitCount++;
+            }
+        }
+        return digitCount;
     }
 
     public double calculateExpression(String expression){
