@@ -45,7 +45,7 @@ public class StringProcessor {
         return digitCount;
     }
 
-    public double calculateExpression(String expression){
+    public double calculateExpression(String expression) {
         Stack<Double> numbers = new Stack<>();
         Stack<Character> operators = new Stack<>();
 
@@ -59,7 +59,7 @@ public class StringProcessor {
                 currentNumber = currentNumber * 10 + (c - '0');
             }
 
-            if (!Character.isDigit(c) && c != ' ' || i == expression.length() - 1) {
+            if ((!Character.isDigit(c) && c != ' ' && c != '(') || i == expression.length() - 1) {
                 if (lastOperator == '+') {
                     numbers.push(currentNumber);
                 } else if (lastOperator == '-') {
