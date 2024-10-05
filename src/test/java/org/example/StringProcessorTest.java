@@ -3,32 +3,32 @@ package org.example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//this is the test section
 class StringProcessorTest {
     StringProcessor stringProcessor = new StringProcessor();
-
+// @Test we wrote because we use when we want to test any software
     @Test
     public void testIsStrongPassword() {
-        assertTrue(stringProcessor.isStrongPassword("Abc$1234"));  // Strong password
-        assertFalse(stringProcessor.isStrongPassword("abc1234"));  // Missing uppercase and special char
-        assertFalse(stringProcessor.isStrongPassword("ABC1234!")); // Missing lowercase
-        assertFalse(stringProcessor.isStrongPassword("abcABC$"));  // Missing digit
+        assertTrue(stringProcessor.isStrongPassword("Abc$1234"));
+        assertFalse(stringProcessor.isStrongPassword("abc1234"));
+        assertFalse(stringProcessor.isStrongPassword("ABC1234!"));
+        assertFalse(stringProcessor.isStrongPassword("abcABC$"));
     }
 
     @Test
     public void testCalculateWord() {
         assertEquals(5, stringProcessor.calculateWord("This is a sample sentence"));
         assertEquals(1, stringProcessor.calculateWord("Hello"));
-        assertEquals(0, stringProcessor.calculateWord("    "));     // Empty sentence
-        assertEquals(0, stringProcessor.calculateWord(null));       // Null sentence
+        assertEquals(0, stringProcessor.calculateWord("    "));
+        assertEquals(0, stringProcessor.calculateWord(null));
     }
 
     @Test
     public void testCalculateDigits() {
         assertEquals(3, stringProcessor.calculateDigits("There are 123 digits"));
         assertEquals(0, stringProcessor.calculateDigits("No digits here"));
-        assertEquals(0, stringProcessor.calculateDigits(""));       // Empty string
-        assertEquals(0, stringProcessor.calculateDigits(null));     // Null string
+        assertEquals(0, stringProcessor.calculateDigits(""));
+        assertEquals(0, stringProcessor.calculateDigits(null));
         assertEquals(2, stringProcessor.calculateDigits("Year: 24"));
     }
 
