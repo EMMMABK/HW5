@@ -40,3 +40,5 @@ class StringProcessorTest {
         assertEquals(2.0, stringProcessor.calculateExpression("6 / 3"), 0.001);
     }
 }
+
+//The test displays whether this method passed the test or not, the first time I ran it, the last method outputted that it did not work, but then I passed the code, and the test showed that the code worked and it was correct.
